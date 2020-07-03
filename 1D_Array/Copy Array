@@ -1,0 +1,33 @@
+import java.util.Scanner;
+
+public class Copy {
+	
+  public static void main(String args[]){
+	
+    Scanner s=new Scanner(System.in);
+		System.out.println("Enter size of an array:");
+		int n=s.nextInt();
+		
+    System.out.println("Enter the array elements:");
+		int[] ar=new int[n];
+		for(int i=0;i<n;i++){
+			ar[i]=s.nextInt();
+		}
+		
+    System.out.println("Original Array");
+		for(int i=0;i<n;i++){
+			System.out.println(ar[i]);
+		}
+		
+    System.out.println("Copied Array");
+		int[] br=new int[ar.length];
+		for(int i=0;i<n;i++){
+			br[i]=ar[i];
+		}
+		
+    System.out.println("Array display :");
+    for(int i=0;i<n;i++){
+			System.out.println(br[i]);
+		}
+	}
+}
