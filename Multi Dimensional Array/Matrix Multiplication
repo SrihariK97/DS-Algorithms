@@ -1,0 +1,95 @@
+import java.util.Scanner;
+
+public class MatrixMul {
+	public static void main(String[] args) {
+		Scanner s=new Scanner(System.in);
+		//Row and column size of 1st matrix
+		System.out.println("1st matix Row :");
+		int fr=s.nextInt();
+		System.out.println("1st matrix Column :");
+		int fc=s.nextInt();
+		//Row and column size of 2nd matrix
+		System.out.println("2nd matix Row :");
+		int sr=s.nextInt();
+		System.out.println("2nd matrix Column :");
+		int sc=s.nextInt();
+		//Condition for matrix Multiplication
+		if(fc!=sr)
+			System.out.println("Row and Column miss match for two matrix");
+		
+		else{
+		//Getting values of 1st matrix from the user
+		System.out.println("Enter the elements of 1st Matrix :");
+		int ar[][]=new int[fr][fc];
+		for(int i=0;i<fr;i++){
+			for(int j=0;j<fc;j++){
+				ar[i][j]=s.nextInt();
+			}
+		}
+		//Getting values of 2nd matrix from the user
+		System.out.println("Enter the elements of 2nd Matrix :");
+		int br[][]=new int[sr][sc];
+		for(int i=0;i<sr;i++){
+			for(int j=0;j<sc;j++){
+				br[i][j]=s.nextInt();
+			}
+		}
+		//Printing 1st matrix
+		System.out.println("1st Matrix :");
+		for(int i=0;i<fr;i++){
+			for(int j=0;j<fc;j++){
+				System.out.print(ar[i][j]+" ");
+			}
+			System.out.println();
+		}
+		//Printing 2nd matrix
+		System.out.println("2nd Matrix :");
+		for(int i=0;i<sr;i++){
+			for(int j=0;j<sc;j++){
+				System.out.print(br[i][j]+" ");
+			}
+			System.out.println();
+		}
+		//3X3 Matrix Multiplication
+		if(fr==3 && fc==3 && sr==3 && sc==3){
+			int res[][]=new int[3][3];
+				for(int i=0;i<3;i++){
+					for(int j=0;j<3;j++){
+						res[i][j]=0;
+						for(int k=0;k<3;k++)
+						res[i][j]=res[i][j]+ar[i][k]*br[k][j];
+						
+					}
+				}
+			//Final Matrix
+			System.out.println("final Matrix :");
+			for(int i=0;i<3;i++){
+				for(int j=0;j<3;j++){
+					System.out.print(res[i][j]+" ");
+				}
+				System.out.println();
+			}
+		}
+		//Multiplication of Equal 1st Matrix Column and 2nd Matrix Row sizes
+		else if(fc==sr){
+			int res[][]=new int[fr][sc];
+			for(int i=0;i<fr;i++){
+				for(int j=0;j<sc;j++){
+					res[i][j]=0;
+					for(int k=0;k<fc;k++){
+						res[i][j]+=ar[i][k]*br[k][j];
+					}
+				}
+			}
+			//Final Matrix
+			System.out.println("final Matrix :");
+			for(int i=0;i<fr;i++){
+				for(int j=0;j<sc;j++){
+					System.out.print(res[i][j]+" ");
+				}
+				System.out.println();
+			}		
+		}
+	}
+  }
+}
